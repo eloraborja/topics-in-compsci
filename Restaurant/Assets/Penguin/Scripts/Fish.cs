@@ -18,7 +18,7 @@ public class Fish : MonoBehaviour
     {
         if (fishSpeed > 0f)
         {
-            Swim();
+            //Swim();
         }
     }
 

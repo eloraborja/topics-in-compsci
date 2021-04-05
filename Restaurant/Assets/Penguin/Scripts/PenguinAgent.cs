@@ -19,10 +19,14 @@ public class PenguinAgent : Agent
     [Tooltip("Prefab of the regurgitated fish that appears when the baby is fed")]
     public GameObject regurgitatedFishPrefab;
 
+    public string babyTag;
+
     private PenguinArea penguinArea;
     new private Rigidbody rigidbody;
-    private GameObject baby;
+    //private GameObject baby;
+    private static List<GameObject> babies = Manager.listReturn();
     private bool isFull; // If true, penguin has a full stomach
+    int index = 0;
 
     /// <summary>
     /// Initial setup, called when the agent is enabled
@@ -31,7 +35,7 @@ public class PenguinAgent : Agent
     {
         base.Initialize();
         penguinArea = GetComponentInParent<PenguinArea>();
-        baby = penguinArea.penguinBaby;
+        //baby = penguinArea.penguinBaby;
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -113,10 +117,10 @@ public class PenguinAgent : Agent
         sensor.AddObservation(isFull);
 
         // Distance to the baby (1 float = 1 value)
-        sensor.AddObservation(Vector3.Distance(baby.transform.position, transform.position));
+        sensor.AddObservation(Vector3.Distance(babies[index].transform.position, transform.position));
 
         // Direction to baby (1 Vector3 = 3 values)
-        sensor.AddObservation((baby.transform.position - transform.position).normalized);
+        sensor.AddObservation((babies[index].transform.position - transform.position).normalized);
 
         // Direction penguin is facing (1 Vector3 = 3 values)
         sensor.AddObservation(transform.forward);
@@ -135,10 +139,14 @@ public class PenguinAgent : Agent
             // Try to eat the fish
             EatFish(collision.gameObject);
         }
-        else if (collision.transform.CompareTag("baby"))
+        else if (collision.transform.CompareTag(babyTag))
         {
             // Try to feed the baby
             RegurgitateFish();
+        }
+        else if (collision.transform.CompareTag("penguin"))
+        {
+            AddReward(-1f);
         }
     }
 
@@ -159,6 +167,7 @@ public class PenguinAgent : Agent
     /// <summary>
     /// Check if agent is full, if yes, feed the baby
     /// </summary>
+    /// Must add code here to switch baby
     private void RegurgitateFish()
     {
         if (!isFull) return; // Nothing to regurgitate
@@ -167,13 +176,13 @@ public class PenguinAgent : Agent
         // Spawn regurgitated fish
         GameObject regurgitatedFish = Instantiate<GameObject>(regurgitatedFishPrefab);
         regurgitatedFish.transform.parent = transform.parent;
-        regurgitatedFish.transform.position = baby.transform.position;
+        //regurgitatedFish.transform.position = baby.transform.position;
         Destroy(regurgitatedFish, 4f);
 
         // Spawn heart
         GameObject heart = Instantiate<GameObject>(heartPrefab);
         heart.transform.parent = transform.parent;
-        heart.transform.position = baby.transform.position + Vector3.up;
+        //heart.transform.position = baby.transform.position + Vector3.up;
         Destroy(heart, 4f);
 
         AddReward(1f);
@@ -181,6 +190,18 @@ public class PenguinAgent : Agent
         if (penguinArea.FishRemaining <= 0)
         {
             EndEpisode();
+        }
+    }
+
+    private void changeBaby()
+    {
+        for(int i = index; i < babies.Capacity; i++)
+        {
+            if(babies[i].tag == babyTag)
+            {
+                index = i;
+                return;
+            }
         }
     }
 

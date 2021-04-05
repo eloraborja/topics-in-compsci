@@ -12,6 +12,8 @@ public class PenguinArea : MonoBehaviour
     [Tooltip("The baby penguin inside the area")]
     public GameObject penguinBaby;
 
+    public List<GameObject> babies = Manager.listReturn();
+
     [Tooltip("The TextMeshPro text that shows the cumulative reward of the agent")]
     public TextMeshPro cumulativeRewardText;
 
@@ -27,7 +29,7 @@ public class PenguinArea : MonoBehaviour
     {
         RemoveAllFish();
         PlacePenguin();
-        PlaceBaby();
+        PlaceBabies(babies);
         SpawnFish(4, .5f);
     }
 
@@ -120,6 +122,18 @@ public class PenguinArea : MonoBehaviour
         rigidbody.angularVelocity = Vector3.zero;
         penguinBaby.transform.position = ChooseRandomPosition(transform.position, -45f, 45f, 4f, 9f) + Vector3.up * .5f;
         penguinBaby.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+    }
+
+    private void PlaceBabies(List<GameObject> list)
+    {
+        for(int i = 0; i < list.Count; i++)
+        {
+            Rigidbody rigidbody = list[i].GetComponent<Rigidbody>();
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
+            list[i].transform.position = ChooseRandomPosition(transform.position, -45f, 45f, 4f, 9f) + Vector3.up * .5f;
+            list[i].transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
     }
 
     /// <summary>
