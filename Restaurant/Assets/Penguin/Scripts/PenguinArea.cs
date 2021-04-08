@@ -10,9 +10,9 @@ public class PenguinArea : MonoBehaviour
     public PenguinAgent penguinAgent;
 
     [Tooltip("The baby penguin inside the area")]
-    public GameObject penguinBaby;
+    //public GameObject penguinBaby;
 
-    public List<GameObject> babies = Manager.listReturn();
+    public List<GameObject> babies = Manager.babyList;
 
     [Tooltip("The TextMeshPro text that shows the cumulative reward of the agent")]
     public TextMeshPro cumulativeRewardText;
@@ -29,7 +29,7 @@ public class PenguinArea : MonoBehaviour
     {
         RemoveAllFish();
         PlacePenguin();
-        PlaceBabies(babies);
+        PlaceBabies();
         SpawnFish(4, .5f);
     }
 
@@ -115,24 +115,24 @@ public class PenguinArea : MonoBehaviour
     /// <summary>
     /// Place the baby in the area
     /// </summary>
-    private void PlaceBaby()
+    /*private void PlaceBaby()
     {
         Rigidbody rigidbody = penguinBaby.GetComponent<Rigidbody>();
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
         penguinBaby.transform.position = ChooseRandomPosition(transform.position, -45f, 45f, 4f, 9f) + Vector3.up * .5f;
         penguinBaby.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-    }
+    }*/
 
-    private void PlaceBabies(List<GameObject> list)
+    private void PlaceBabies()
     {
-        for(int i = 0; i < list.Count; i++)
+        for(int i = 0; i < babies.Capacity; i++)
         {
-            Rigidbody rigidbody = list[i].GetComponent<Rigidbody>();
+            Rigidbody rigidbody = babies[i].GetComponent<Rigidbody>();
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
-            list[i].transform.position = ChooseRandomPosition(transform.position, -45f, 45f, 4f, 9f) + Vector3.up * .5f;
-            list[i].transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            babies[i].transform.position = ChooseRandomPosition(transform.position, -45f, 45f, 4f, 9f) + Vector3.up * .5f;
+            babies[i].transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
     }
 

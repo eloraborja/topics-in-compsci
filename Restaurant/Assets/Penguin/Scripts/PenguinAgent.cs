@@ -23,10 +23,10 @@ public class PenguinAgent : Agent
 
     private PenguinArea penguinArea;
     new private Rigidbody rigidbody;
-    //private GameObject baby;
-    private static List<GameObject> babies = Manager.listReturn();
+    private GameObject baby;
+    private List<GameObject> babies = new List<GameObject>();
     private bool isFull; // If true, penguin has a full stomach
-    int index = 0;
+    private int index = 0;
 
     /// <summary>
     /// Initial setup, called when the agent is enabled
@@ -36,6 +36,10 @@ public class PenguinAgent : Agent
         base.Initialize();
         penguinArea = GetComponentInParent<PenguinArea>();
         //baby = penguinArea.penguinBaby;
+        babies = Manager.GetList();
+        Debug.Log(babies.Capacity);
+        baby = babies[index];
+        babyTag = "baby";
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -143,6 +147,7 @@ public class PenguinAgent : Agent
         {
             // Try to feed the baby
             RegurgitateFish();
+            changeBaby();
         }
         else if (collision.transform.CompareTag("penguin"))
         {
