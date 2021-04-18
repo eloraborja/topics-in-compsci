@@ -24,17 +24,8 @@ public class Manager : MonoBehaviour
     {
         for(int i = 0; i < count; i++)
         {
-            /*GameObject temp = Instantiate<GameObject>(babyPrefab.gameObject);
-            if(counter == 0)
-            {
-                temp.tag = "baby";
-                //counter = 1;
-            } else
-            {
-                temp.tag = "Baby";
-                counter = 0;
-            }*/
             babyList.Add((GameObject)Instantiate<GameObject>(babyPrefab.gameObject));
+            babyList[i].tag = "baby" + i;
         }
         return;
     }

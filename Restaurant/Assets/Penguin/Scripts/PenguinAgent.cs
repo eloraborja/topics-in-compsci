@@ -21,12 +21,15 @@ public class PenguinAgent : Agent
 
     public string babyTag;
 
+    private List<string> babyTags = new List<string>();
+
     private PenguinArea penguinArea;
     new private Rigidbody rigidbody;
     private GameObject baby;
     private List<GameObject> babies = new List<GameObject>();
     private bool isFull; // If true, penguin has a full stomach
     private int index = 0;
+    //int babyIndex = 0;
 
     /// <summary>
     /// Initial setup, called when the agent is enabled
@@ -36,11 +39,12 @@ public class PenguinAgent : Agent
         base.Initialize();
         penguinArea = GetComponentInParent<PenguinArea>();
         //baby = penguinArea.penguinBaby;
-        babies = Manager.GetList();
-        Debug.Log(babies.Capacity);
-        baby = babies[index];
         babyTag = "baby";
         rigidbody = GetComponent<Rigidbody>();
+        babyTags.Add("baby0");
+        babyTags.Add("baby1");
+        babyTags.Add("baby2");
+        babyTags.Add("baby3");
     }
 
     /// <summary>
@@ -109,6 +113,11 @@ public class PenguinAgent : Agent
     {
         isFull = false;
         penguinArea.ResetArea();
+        index = 0;
+        //babyIndex = 0;
+        babies = Manager.GetList();
+        baby = babies[index];
+
     }
 
     /// <summary>
@@ -121,10 +130,10 @@ public class PenguinAgent : Agent
         sensor.AddObservation(isFull);
 
         // Distance to the baby (1 float = 1 value)
-        sensor.AddObservation(Vector3.Distance(babies[index].transform.position, transform.position));
+        sensor.AddObservation(Vector3.Distance(baby.transform.position, transform.position));
 
         // Direction to baby (1 Vector3 = 3 values)
-        sensor.AddObservation((babies[index].transform.position - transform.position).normalized);
+        sensor.AddObservation((baby.transform.position - transform.position).normalized);
 
         // Direction penguin is facing (1 Vector3 = 3 values)
         sensor.AddObservation(transform.forward);
@@ -143,11 +152,11 @@ public class PenguinAgent : Agent
             // Try to eat the fish
             EatFish(collision.gameObject);
         }
-        else if (collision.transform.CompareTag(babyTag))
+        else if (collision.transform.CompareTag(baby.tag))
         {
             // Try to feed the baby
             RegurgitateFish();
-            changeBaby();
+            //babyIndex++;
         }
         else if (collision.transform.CompareTag("penguin"))
         {
@@ -172,7 +181,6 @@ public class PenguinAgent : Agent
     /// <summary>
     /// Check if agent is full, if yes, feed the baby
     /// </summary>
-    /// Must add code here to switch baby
     private void RegurgitateFish()
     {
         if (!isFull) return; // Nothing to regurgitate
@@ -181,33 +189,40 @@ public class PenguinAgent : Agent
         // Spawn regurgitated fish
         GameObject regurgitatedFish = Instantiate<GameObject>(regurgitatedFishPrefab);
         regurgitatedFish.transform.parent = transform.parent;
-        //regurgitatedFish.transform.position = baby.transform.position;
+        regurgitatedFish.transform.position = baby.transform.position;
         Destroy(regurgitatedFish, 4f);
 
         // Spawn heart
         GameObject heart = Instantiate<GameObject>(heartPrefab);
         heart.transform.parent = transform.parent;
-        //heart.transform.position = baby.transform.position + Vector3.up;
+        heart.transform.position = baby.transform.position + Vector3.up;
         Destroy(heart, 4f);
 
         AddReward(1f);
 
-        if (penguinArea.FishRemaining <= 0)
+        index = changeBaby(index);
+        Debug.Log(index);
+
+        if (penguinArea.FishRemaining <= 0 || index == 99)
         {
+            index = 0;
+            //babyIndex = 0;
             EndEpisode();
         }
+        baby = babies[index];
     }
 
-    private void changeBaby()
+    private int changeBaby(int index)
     {
-        for(int i = index; i < babies.Capacity; i++)
+        for(int i = index+1; i < babies.Capacity; i++)
         {
-            if(babies[i].tag == babyTag)
+            //if(babies[i].tag == babyTag)
+            if(babyTags.Contains(babies[i].tag))
             {
-                index = i;
-                return;
+                return i;
             }
         }
+        return 99;
     }
 
 }

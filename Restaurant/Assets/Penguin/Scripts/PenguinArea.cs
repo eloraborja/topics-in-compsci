@@ -12,7 +12,7 @@ public class PenguinArea : MonoBehaviour
     [Tooltip("The baby penguin inside the area")]
     //public GameObject penguinBaby;
 
-    public List<GameObject> babies = Manager.babyList;
+    public static List<GameObject> babies = Manager.babyList;
 
     [Tooltip("The TextMeshPro text that shows the cumulative reward of the agent")]
     public TextMeshPro cumulativeRewardText;

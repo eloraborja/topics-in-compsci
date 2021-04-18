@@ -979,7 +979,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penguinAgent: {fileID: 2428564998871083142}
-  penguinBaby: {fileID: 8935988102526539941}
   cumulativeRewardText: {fileID: 4978840771572370833}
   fishPrefab: {fileID: 3613340229074290538, guid: fdcb92e96ad0d0748b3ea694341cce7c,
     type: 3}
@@ -1074,6 +1073,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BabyPenguin
       objectReference: {fileID: 0}
+    - target: {fileID: 8233607031812012893, guid: 2413bc9bd97757c42865401de90e756f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8721349683481436647, guid: 2413bc9bd97757c42865401de90e756f,
         type: 3}
       propertyPath: m_RootOrder
@@ -1131,12 +1135,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2413bc9bd97757c42865401de90e756f, type: 3}
---- !u!1 &8935988102526539941 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8233607031812012893, guid: 2413bc9bd97757c42865401de90e756f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1027001229687268344}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8595350206500192799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8721349683481436647, guid: 2413bc9bd97757c42865401de90e756f,

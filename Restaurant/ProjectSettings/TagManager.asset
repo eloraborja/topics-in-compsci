@@ -8,6 +8,11 @@ TagManager:
   - fish
   - baby
   - penguin
+  - baby0
+  - baby1
+  - baby2
+  - baby3
+  - baby4
   layers:
   - Default
   - TransparentFX
