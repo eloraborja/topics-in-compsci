@@ -31,8 +31,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815234895605331437}
-  m_LocalRotation: {x: 0, y: 0.8885448, z: 0, w: -0.45878983}
-  m_LocalPosition: {x: -0.11888923, y: 0.5, z: 1.6608602}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -170,12 +170,6 @@ MonoBehaviour:
     type: 3}
   regurgitatedFishPrefab: {fileID: 1336607297228226344, guid: 31e0c141c650e2445b1f94b91218aab8,
     type: 3}
-  p1: {fileID: 0}
-  babyTags:
-  - baby0
-  - baby1
-  - baby2
-  - baby3
 --- !u!114 &4150618255867887596
 MonoBehaviour:
   m_ObjectHideFlags: 0
