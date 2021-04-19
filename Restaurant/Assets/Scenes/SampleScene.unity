@@ -123,11 +123,8 @@ NavMeshSettings:
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 >>>>>>> parent of 186c59a (Attempt at fixing scene)
-=======
->>>>>>> parent of eba8878 (Revert "Revert "Revert "Revert "Update SampleScene.unity"""")
 --- !u!1001 &143038917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -773,13 +770,10 @@ MeshFilter:
   m_GameObject: {fileID: 689213886}
   m_Mesh: {fileID: 4300014, guid: e374c02391f6c3a44af28fe3cf2393ff, type: 3}
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 >>>>>>> parent of 5841bc0 (Revert "Revert "Revert "Revert "Revert "Revert "Functionality for multiple penguins"""""")
 =======
 >>>>>>> parent of 186c59a (Attempt at fixing scene)
-=======
->>>>>>> parent of eba8878 (Revert "Revert "Revert "Revert "Update SampleScene.unity"""")
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +864,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &746418367
@@ -1071,15 +1066,12 @@ MeshFilter:
   m_GameObject: {fileID: 892480183}
   m_Mesh: {fileID: 4300006, guid: f5561b217c3584b468922c7925e278d0, type: 3}
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 >>>>>>> parent of 5841bc0 (Revert "Revert "Revert "Revert "Revert "Revert "Functionality for multiple penguins"""""")
 =======
 >>>>>>> parent of 186c59a (Attempt at fixing scene)
-=======
->>>>>>> parent of eba8878 (Revert "Revert "Revert "Revert "Update SampleScene.unity"""")
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,15 +1687,12 @@ MeshFilter:
   m_GameObject: {fileID: 1717418564}
   m_Mesh: {fileID: 4300014, guid: e374c02391f6c3a44af28fe3cf2393ff, type: 3}
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> parent of 5841bc0 (Revert "Revert "Revert "Revert "Revert "Revert "Functionality for multiple penguins"""""")
 =======
 >>>>>>> parent of 186c59a (Attempt at fixing scene)
-=======
->>>>>>> parent of eba8878 (Revert "Revert "Revert "Revert "Update SampleScene.unity"""")
 --- !u!1001 &7703205502616124226
 PrefabInstance:
   m_ObjectHideFlags: 0
