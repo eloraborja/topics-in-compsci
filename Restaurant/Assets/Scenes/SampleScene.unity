@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> parent of fff23c3 (Revert "Functionality for multiple penguins to bring food to multiple babies")
 --- !u!1001 &143038917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -765,6 +771,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689213886}
   m_Mesh: {fileID: 4300014, guid: e374c02391f6c3a44af28fe3cf2393ff, type: 3}
+<<<<<<< HEAD
+=======
+=======
+--- !u!114 &373355162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 734490739150183226, guid: c1c4598b350d4544b9cd23fff7fd2701,
+    type: 3}
+  m_PrefabInstance: {fileID: 779540598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff48bc757c1b37c47a621887f729273f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> Stashed changes
+>>>>>>> b1e87ad (Functionality for multiple penguins to bring food to multiple babies)
+>>>>>>> parent of fff23c3 (Revert "Functionality for multiple penguins to bring food to multiple babies")
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1016,15 @@ Transform:
   m_LocalPosition: {x: 3.55, y: 0.35, z: 0.53}
   m_LocalScale: {x: 0.67634946, y: 0.67634946, z: 0.67634946}
   m_Children: []
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+=======
+<<<<<<< Updated upstream
+>>>>>>> parent of fff23c3 (Revert "Functionality for multiple penguins to bring food to multiple babies")
   m_Father: {fileID: 1476923839}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1055,6 +1088,104 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892480183}
   m_Mesh: {fileID: 4300006, guid: f5561b217c3584b468922c7925e278d0, type: 3}
+<<<<<<< HEAD
+=======
+=======
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &779540598
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2092252443}
+    m_Modifications:
+    - target: {fileID: 734490739150183226, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: p1
+      value: 
+      objectReference: {fileID: 1395086836}
+    - target: {fileID: 734490739150183226, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: babyTags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 734490739150183226, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: babyTags.Array.data[0]
+      value: baby2
+      objectReference: {fileID: 0}
+    - target: {fileID: 734490739150183226, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: babyTags.Array.data[1]
+      value: baby3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331607716510216023, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815234895605331437, guid: c1c4598b350d4544b9cd23fff7fd2701,
+        type: 3}
+      propertyPath: m_Name
+      value: Penguin (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1c4598b350d4544b9cd23fff7fd2701, type: 3}
+>>>>>>> Stashed changes
+>>>>>>> b1e87ad (Functionality for multiple penguins to bring food to multiple babies)
+>>>>>>> parent of fff23c3 (Revert "Functionality for multiple penguins to bring food to multiple babies")
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   babyPrefab: {fileID: 5475319136032473335, guid: 2413bc9bd97757c42865401de90e756f,
     type: 3}
+  penguinPrefab: {fileID: 1395086836}
 --- !u!4 &1033541689
 Transform:
   m_ObjectHideFlags: 0
@@ -1274,8 +1406,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+<<<<<<< HEAD
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> parent of fff23c3 (Revert "Functionality for multiple penguins to bring food to multiple babies")
 --- !u!1 &1355536394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,6 +1811,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717418564}
   m_Mesh: {fileID: 4300014, guid: e374c02391f6c3a44af28fe3cf2393ff, type: 3}
+<<<<<<< HEAD
+=======
+=======
+--- !u!114 &1395086836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2428564998871083142, guid: abecda3bf458758419988f650524a3e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7703205502616124226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff48bc757c1b37c47a621887f729273f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2092252443 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7885224511058261963, guid: abecda3bf458758419988f650524a3e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7703205502616124226}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> Stashed changes
+>>>>>>> b1e87ad (Functionality for multiple penguins to bring food to multiple babies)
+>>>>>>> parent of fff23c3 (Revert "Functionality for multiple penguins to bring food to multiple babies")
 --- !u!1001 &7703205502616124226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1676,20 +1842,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1304747294078635088, guid: abecda3bf458758419988f650524a3e3,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[2]
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428564998871083142, guid: abecda3bf458758419988f650524a3e3,
+        type: 3}
+      propertyPath: p1
+      value: 
+      objectReference: {fileID: 373355162}
     - target: {fileID: 2428564998871083142, guid: abecda3bf458758419988f650524a3e3,
         type: 3}
       propertyPath: babyTag
       value: baby
       objectReference: {fileID: 0}
+    - target: {fileID: 2428564998871083142, guid: abecda3bf458758419988f650524a3e3,
+        type: 3}
+      propertyPath: babyTags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428564998871083142, guid: abecda3bf458758419988f650524a3e3,
+        type: 3}
+      propertyPath: babyTags.Array.data[0]
+      value: baby0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428564998871083142, guid: abecda3bf458758419988f650524a3e3,
+        type: 3}
+      propertyPath: babyTags.Array.data[1]
+      value: baby1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653425443178464849, guid: abecda3bf458758419988f650524a3e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177163120004209899, guid: abecda3bf458758419988f650524a3e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: -3.79
       objectReference: {fileID: 0}
     - target: {fileID: 4177163120004209899, guid: abecda3bf458758419988f650524a3e3,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025060144912491279, guid: abecda3bf458758419988f650524a3e3,
+        type: 3}
+      propertyPath: isFed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6272808439308135835, guid: abecda3bf458758419988f650524a3e3,
         type: 3}
