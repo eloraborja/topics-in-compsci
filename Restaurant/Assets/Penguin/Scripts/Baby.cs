@@ -11,11 +11,6 @@ public class Baby : MonoBehaviour
         isFed = true;
     }
 
-    public void unFeed()
-    {
-        isFed = false;
-    }
-
     public bool checkStatus()
     {
         return isFed;
