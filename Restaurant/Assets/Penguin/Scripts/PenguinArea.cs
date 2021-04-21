@@ -9,7 +9,11 @@ public class PenguinArea : MonoBehaviour
     [Tooltip("The agent inside the area")]
     public PenguinAgent penguinAgent;
 
-    public static List<GameObject> babies = Manager.babyList;
+    public PenguinAgent penguinAgent2;
+
+    //public static List<GameObject> babies = Manager.babyList;
+
+    public List<GameObject> babies;
 
     public static List<GameObject> penguins = Manager.penguinList;
 
@@ -27,9 +31,16 @@ public class PenguinArea : MonoBehaviour
     public void ResetArea()
     {
         RemoveAllFish();
-        PlacePenguins();
-        PlaceBabies();
+        //PlacePenguins();
+        //PlaceBabies();
         SpawnFish(4, .5f);
+
+        penguinAgent.transform.SetParent(transform);
+        penguinAgent.transform.localPosition = new Vector3(-2.751f, 0.09f, 0.273f);
+
+        penguinAgent2.transform.SetParent(transform);
+        penguinAgent2.transform.localPosition = new Vector3(-2.77f, 0.09f, 0.965f);
+
     }
 
     /// <summary>
@@ -158,11 +169,13 @@ public class PenguinArea : MonoBehaviour
         {
             // Spawn and place the fish
             GameObject fishObject = Instantiate<GameObject>(fishPrefab.gameObject);
-            fishObject.transform.position = ChooseRandomPosition(transform.position, 100f, 260f, 2f, 13f) + Vector3.up * .5f;
-            fishObject.transform.rotation = Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
+            //fishObject.transform.position = ChooseRandomPosition(transform.position, 100f, 260f, 2f, 13f) + Vector3.up * .5f;
+            //fishObject.transform.position = new Vector3(-59f, 0.09f, -(i*1.5f));
+            //fishObject.transform.rotation = Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
 
             // Set the fish's parent to this area's transform
             fishObject.transform.SetParent(transform);
+            fishObject.transform.localPosition = new Vector3(-3.2f, 0.04f, i * -0.2f);
 
             // Keep track of the fish
             fishList.Add(fishObject);

@@ -21,11 +21,13 @@ public class PenguinAgent : Agent
 
     public PenguinAgent p1;
 
+    public GameObject kitchen;
+
     public List<string> babyTags = new List<string>();
     private PenguinArea penguinArea;
     new private Rigidbody rigidbody;
     private GameObject baby;
-    private List<GameObject> babies = new List<GameObject>();
+    public List<GameObject> babies = new List<GameObject>();
     private bool isFull; // If true, penguin has a full stomach
     private int index = 0;
 
@@ -108,8 +110,7 @@ public class PenguinAgent : Agent
         isFull = false;
         penguinArea.ResetArea();
         index = changeBaby(-1);
-        babies = Manager.GetList();
-        Debug.Log(babies.Capacity);
+        //babies = Manager.GetList();
         baby = babies[index];
 
     }
@@ -133,10 +134,16 @@ public class PenguinAgent : Agent
         sensor.AddObservation(transform.forward);
 
         // Distance to the other penguin (1 float = 1 value)
-        //sensor.AddObservation(Vector3.Distance(p1.transform.position, transform.position));
+        sensor.AddObservation(Vector3.Distance(kitchen.transform.position, transform.position));
 
         // Direction to other penguin (1 Vector3 = 3 values)
-        //sensor.AddObservation((p1.transform.position - transform.position).normalized);
+        sensor.AddObservation((kitchen.transform.position - transform.position).normalized);
+
+        // Distance to the other penguin (1 float = 1 value)
+        sensor.AddObservation(Vector3.Distance(p1.transform.position, transform.position));
+
+        // Direction to other penguin (1 Vector3 = 3 values)
+        sensor.AddObservation((p1.transform.position - transform.position).normalized);
     }
 
     /// <summary>
@@ -157,7 +164,7 @@ public class PenguinAgent : Agent
         }
         else if (collision.transform.CompareTag("penguin"))
         {
-            AddReward(-1f);
+            AddReward(-0.5f);
         }
     }
 
@@ -200,7 +207,6 @@ public class PenguinAgent : Agent
         baby.GetComponent<Baby>().feed();
 
         index = changeBaby(index);
-        Debug.Log(index);
 
         if (index == 99)
         {
