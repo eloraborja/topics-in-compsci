@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using System.Diagnostics;
 
 public class PenguinAgent : Agent
 {
@@ -22,6 +23,8 @@ public class PenguinAgent : Agent
     public PenguinAgent p1;
 
     public GameObject kitchen;
+
+    public Stopwatch timer;
 
     public List<string> babyTags = new List<string>();
     private PenguinArea penguinArea;
@@ -105,6 +108,8 @@ public class PenguinAgent : Agent
     /// </summary>
     public override void OnEpisodeBegin()
     {
+        timer = new Stopwatch();
+        timer.Start();
         moveSpeed = 5f;
         turnSpeed = 180f;
         isFull = false;
@@ -260,6 +265,8 @@ public class PenguinAgent : Agent
             {
                 babies[i].GetComponent<Baby>().unFeed();
             }
+            timer.Stop();
+            Manager.addTime(timer.ElapsedMilliseconds);
             p1.EndEpisode();
             EndEpisode();
         }

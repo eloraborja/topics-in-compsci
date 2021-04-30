@@ -6,6 +6,7 @@ public class Manager : MonoBehaviour
 {
     public static List<GameObject> babyList = new List<GameObject>();
     public static List<GameObject> penguinList = new List<GameObject>();
+    private static List<float> times = new List<float>();
 
     public Baby babyPrefab;
     public PenguinAgent penguinPrefab;
@@ -15,6 +16,7 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        times.Clear();
         //createBabies(4);
     }
 
@@ -45,5 +47,28 @@ public class Manager : MonoBehaviour
     public static List<GameObject> GetPenguinList()
     {
         return penguinList;
+    }
+
+    public static void addTime(float t)
+    {
+        times.Add(t);
+    }
+
+    private float average(List<float> ti)
+    {
+        float temp = 0.0f;
+        for(int i = 0; i < ti.Count; i++)
+        {
+            temp += ti[i];
+        }
+        return temp / ti.Count;
+    }
+
+    void Update()
+    {
+        if(times.Count == 10)
+        {
+            Debug.Log(average(times));
+        }
     }
 }
