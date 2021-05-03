@@ -13,6 +13,7 @@ TagManager:
   - baby2
   - baby3
   - baby4
+  - kitchen
   layers:
   - Default
   - TransparentFX

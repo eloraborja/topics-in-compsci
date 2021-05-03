@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using System.Diagnostics;
 
 public class PenguinAgent : Agent
 {
@@ -19,17 +20,19 @@ public class PenguinAgent : Agent
     [Tooltip("Prefab of the regurgitated fish that appears when the baby is fed")]
     public GameObject regurgitatedFishPrefab;
 
-    public string babyTag;
+    public PenguinAgent p1;
 
-    private List<string> babyTags = new List<string>();
+    public GameObject kitchen;
 
+    public Stopwatch timer;
+
+    public List<string> babyTags = new List<string>();
     private PenguinArea penguinArea;
     new private Rigidbody rigidbody;
     private GameObject baby;
-    private List<GameObject> babies = new List<GameObject>();
+    public List<GameObject> babies = new List<GameObject>();
     private bool isFull; // If true, penguin has a full stomach
     private int index = 0;
-    //int babyIndex = 0;
 
     /// <summary>
     /// Initial setup, called when the agent is enabled
@@ -38,13 +41,7 @@ public class PenguinAgent : Agent
     {
         base.Initialize();
         penguinArea = GetComponentInParent<PenguinArea>();
-        //baby = penguinArea.penguinBaby;
-        babyTag = "baby";
         rigidbody = GetComponent<Rigidbody>();
-        babyTags.Add("baby0");
-        babyTags.Add("baby1");
-        babyTags.Add("baby2");
-        babyTags.Add("baby3");
     }
 
     /// <summary>
@@ -111,11 +108,14 @@ public class PenguinAgent : Agent
     /// </summary>
     public override void OnEpisodeBegin()
     {
+        timer = new Stopwatch();
+        timer.Start();
+        moveSpeed = 5f;
+        turnSpeed = 180f;
         isFull = false;
         penguinArea.ResetArea();
-        index = 0;
-        //babyIndex = 0;
-        babies = Manager.GetList();
+        index = changeBaby(-1);
+        //babies = Manager.GetList();
         baby = babies[index];
 
     }
@@ -138,7 +138,17 @@ public class PenguinAgent : Agent
         // Direction penguin is facing (1 Vector3 = 3 values)
         sensor.AddObservation(transform.forward);
 
-        // 1 + 1 + 3 + 3 = 8 total values
+        // Distance to the other penguin (1 float = 1 value)
+        sensor.AddObservation(Vector3.Distance(kitchen.transform.position, transform.position));
+
+        // Direction to other penguin (1 Vector3 = 3 values)
+        sensor.AddObservation((kitchen.transform.position - transform.position).normalized);
+
+        // Distance to the other penguin (1 float = 1 value)
+        sensor.AddObservation(Vector3.Distance(p1.transform.position, transform.position));
+
+        // Direction to other penguin (1 Vector3 = 3 values)
+        sensor.AddObservation((p1.transform.position - transform.position).normalized);
     }
 
     /// <summary>
@@ -156,11 +166,10 @@ public class PenguinAgent : Agent
         {
             // Try to feed the baby
             RegurgitateFish();
-            //babyIndex++;
         }
         else if (collision.transform.CompareTag("penguin"))
         {
-            AddReward(-1f);
+            AddReward(-0.5f);
         }
     }
 
@@ -200,29 +209,67 @@ public class PenguinAgent : Agent
 
         AddReward(1f);
 
-        index = changeBaby(index);
-        Debug.Log(index);
+        baby.GetComponent<Baby>().feed();
 
-        if (penguinArea.FishRemaining <= 0 || index == 99)
+        index = changeBaby(index);
+
+        if (index == 99)
+        {
+            moveSpeed = 0f;
+            turnSpeed = 0f;
+        }
+
+        /*if (penguinArea.FishRemaining <= 0)
         {
             index = 0;
-            //babyIndex = 0;
-            EndEpisode();
+            //EndEpisode();
+        }*/
+
+        if (index != 99)
+        {
+            baby = babies[index];
         }
-        baby = babies[index];
+
     }
 
     private int changeBaby(int index)
     {
-        for(int i = index+1; i < babies.Capacity; i++)
+        for (int i = index + 1; i < babies.Capacity; i++)
         {
-            //if(babies[i].tag == babyTag)
-            if(babyTags.Contains(babies[i].tag))
+            if (babyTags.Contains(babies[i].tag))
             {
                 return i;
             }
         }
         return 99;
+    }
+
+    public void setTags(string t)
+    {
+        babyTags.Add(t);
+    }
+
+    void Update()
+    {
+        int babiesFed = 0;
+        for (int i = 0; i < babies.Capacity; i++)
+        {
+            if (babies[i].GetComponent<Baby>().checkStatus() == true)
+            {
+                babiesFed++;
+            }
+        }
+        if (babiesFed == babies.Capacity)
+        {
+            for (int i = 0; i < babies.Capacity; i++)
+            {
+                babies[i].GetComponent<Baby>().unFeed();
+            }
+            timer.Stop();
+            Manager.addTime(timer.ElapsedMilliseconds);
+            p1.EndEpisode();
+            EndEpisode();
+        }
     }
 
 }
