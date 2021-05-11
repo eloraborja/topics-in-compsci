@@ -66,6 +66,6 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(average(times));
+        Debug.Log(average(times));
     }
 }
