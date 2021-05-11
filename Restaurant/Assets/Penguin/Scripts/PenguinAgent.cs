@@ -196,16 +196,16 @@ public class PenguinAgent : Agent
         isFull = false;
 
         // Spawn regurgitated fish
-        GameObject regurgitatedFish = Instantiate<GameObject>(regurgitatedFishPrefab);
-        regurgitatedFish.transform.parent = transform.parent;
-        regurgitatedFish.transform.position = baby.transform.position;
-        Destroy(regurgitatedFish, 4f);
+        //GameObject regurgitatedFish = Instantiate<GameObject>(regurgitatedFishPrefab);
+        //regurgitatedFish.transform.parent = transform.parent;
+        //regurgitatedFish.transform.position = baby.transform.position;
+        //Destroy(regurgitatedFish, 4f);
 
         // Spawn heart
-        GameObject heart = Instantiate<GameObject>(heartPrefab);
-        heart.transform.parent = transform.parent;
-        heart.transform.position = baby.transform.position + Vector3.up;
-        Destroy(heart, 4f);
+        //GameObject heart = Instantiate<GameObject>(heartPrefab);
+        //heart.transform.parent = transform.parent;
+        //heart.transform.position = baby.transform.position + Vector3.up;
+        //Destroy(heart, 4f);
 
         AddReward(1f);
 

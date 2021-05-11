@@ -33,13 +33,13 @@ public class PenguinArea : MonoBehaviour
         RemoveAllFish();
         //PlacePenguins();
         //PlaceBabies();
-        SpawnFish(4, .5f);
+        SpawnFish(12, .5f);
 
         penguinAgent.transform.SetParent(transform);
-        penguinAgent.transform.localPosition = new Vector3(-2.751f, 0.09f, 0.273f);
+        penguinAgent.transform.localPosition = new Vector3(2.718f, 0.5f, -1.139f);
 
         penguinAgent2.transform.SetParent(transform);
-        penguinAgent2.transform.localPosition = new Vector3(-2.77f, 0.09f, 0.965f);
+        penguinAgent2.transform.localPosition = new Vector3(3.34f, 0.5f, -1.5f);
 
     }
 
@@ -175,7 +175,8 @@ public class PenguinArea : MonoBehaviour
 
             // Set the fish's parent to this area's transform
             fishObject.transform.SetParent(transform);
-            fishObject.transform.localPosition = new Vector3(-3.2f, 0.04f, i * -0.2f);
+            fishObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            fishObject.transform.localPosition = new Vector3(i * 0.1f + 2.4f, 0.001f, 0.31f);
 
             // Keep track of the fish
             fishList.Add(fishObject);
@@ -197,7 +198,15 @@ public class PenguinArea : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        // Update the cumulative reward text
-        cumulativeRewardText.text = penguinAgent.GetCumulativeReward().ToString("0.00");
+        if (penguinAgent.transform.position.y <= -5)
+        {
+            penguinAgent.transform.SetParent(transform);
+            penguinAgent.transform.localPosition = new Vector3(2.718f, 0.5f, -1.139f);
+        }
+        if (penguinAgent2.transform.position.y <= -5)
+        {
+            penguinAgent2.transform.SetParent(transform);
+            penguinAgent2.transform.localPosition = new Vector3(3.34f, 0.5f, -1.5f);
+        }
     }
 }

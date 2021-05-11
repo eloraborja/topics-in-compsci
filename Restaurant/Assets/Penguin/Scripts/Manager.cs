@@ -66,9 +66,6 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
-        if(times.Count == 10)
-        {
-            Debug.Log(average(times));
-        }
+        //Debug.Log(average(times));
     }
 }
