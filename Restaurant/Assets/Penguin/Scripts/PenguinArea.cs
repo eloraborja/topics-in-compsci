@@ -36,10 +36,10 @@ public class PenguinArea : MonoBehaviour
         SpawnFish(12, .5f);
 
         penguinAgent.transform.SetParent(transform);
-        penguinAgent.transform.localPosition = new Vector3(-2.9252f, 0.05f, -1.67f);
+        penguinAgent.transform.localPosition = new Vector3(-1.3f, 0.05f, -1.1f);
 
         penguinAgent2.transform.SetParent(transform);
-        penguinAgent2.transform.localPosition = new Vector3(-2.9252f, 0.05f, -0.945f);
+        penguinAgent2.transform.localPosition = new Vector3(-2.65f, 0.05f, -1.1f);
 
     }
 
@@ -176,7 +176,7 @@ public class PenguinArea : MonoBehaviour
             // Set the fish's parent to this area's transform
             fishObject.transform.SetParent(transform);
             //fishObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-            fishObject.transform.localPosition = new Vector3(i * 0.08f + (-3.5f), 0.05f, 0.665f);
+            fishObject.transform.localPosition = new Vector3(i * 0.08f + (-2f), 0.05f, 1f);
 
             // Keep track of the fish
             fishList.Add(fishObject);
@@ -202,12 +202,12 @@ public class PenguinArea : MonoBehaviour
         if (penguinAgent.transform.position.y <= -5)
         {
             penguinAgent.transform.SetParent(transform);
-            penguinAgent.transform.localPosition = new Vector3(-2.9252f, 0.05f, -1.67f);
+            penguinAgent.transform.localPosition = new Vector3(-1.3f, 0.05f, -1.1f);
         }
         if (penguinAgent2.transform.position.y <= -5)
         {
             penguinAgent2.transform.SetParent(transform);
-            penguinAgent2.transform.localPosition = new Vector3(-2.9252f, 0.05f, -0.945f);
+            penguinAgent2.transform.localPosition = new Vector3(-2.65f, 0.05f, -1.1f);
         }
     }
 }

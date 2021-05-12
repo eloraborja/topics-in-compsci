@@ -110,7 +110,7 @@ public class PenguinAgent : Agent
     {
         timer = new Stopwatch();
         timer.Start();
-        moveSpeed = 10f;
+        moveSpeed = 15f;
         turnSpeed = 180f;
         isFull = false;
         penguinArea.ResetArea();
